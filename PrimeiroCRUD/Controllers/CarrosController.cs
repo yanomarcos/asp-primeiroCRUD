@@ -68,5 +68,15 @@ namespace PrimeiroCRUD.Controllers
             }
             return View(carro);
         }
+
+        public IActionResult Detalhes(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var carro = _contexto.Carros.FirstOrDefault(x => x.CarroId == id);
+
+            return View(carro);
+        }
     }
 }
